@@ -1,0 +1,5 @@
+data/
+.byebug_history
+output.csv
+run.rb
+.DS_Store
