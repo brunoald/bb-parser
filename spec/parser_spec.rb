@@ -8,7 +8,6 @@ describe Parser do
   context 'reading files' do
     context 'when file exists' do
       it 'rejects useless lines' do
-        expect(lines.size).to eql 1
         expect(lines[0]).to match("POSTO GRAJAU")
       end
     end
@@ -28,7 +27,12 @@ describe Parser do
       it { expect(data[:entry_date]).to eql('13/10/2015') }
       it { expect(data[:type]).to eql('Compra com Cartão') }
       it { expect(data[:place]).to eql('POSTO GRAJAU') }
+      it { expect(data[:category]).to eql('Combustível') }
       it { expect(data[:value]).to eql('-40,00') }
+      it { expect(data[:hour]).to eql('16:16') }
+      it { expect(data[:period]).to eql('Tarde') }
+      it { expect(data[:month]).to eql(10) }
+      it { expect(data[:year]).to eql(2015) }
     end
 
     context 'when there is no place"' do
@@ -38,5 +42,21 @@ describe Parser do
       it { expect(data[:place]).to eql('') }
       it { expect(data[:value]).to eql('6,90') }
     end
+  end
+
+  context 'category discovery' do
+    it { expect(parser.category('POSTO GRAJAU')).to eql('Combustível') }
+    it { expect(parser.category('DROGARIA ARAUJO')).to eql('Farmácia') }
+    it { expect(parser.category('DROGARIA RAIA')).to eql('Farmácia') }
+    it { expect(parser.category('BARRACA')).to eql('Indefinido') }
+    it { expect(parser.category('BAR')).to eql('Lazer') }
+    it { expect(parser.category('BAR DO JOAO')).to eql('Lazer') }
+  end
+
+  context 'period extraction' do
+    it { expect(parser.extract_period('00:00')).to eql('Madrugada') }
+    it { expect(parser.extract_period('06:00')).to eql('Manhã') }
+    it { expect(parser.extract_period('12:00')).to eql('Tarde') }
+    it { expect(parser.extract_period('18:00')).to eql('Noite') }
   end
 end
