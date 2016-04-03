@@ -2,7 +2,7 @@
 
 ![alt text](https://travis-ci.org/brunoald/bb-parser.svg?branch=master "Build status")
 
-This software parses Banco do Brasil CSV statements and creates better one.
+This software parses Banco do Brasil CSV statements and creates a better one.
 
 ## How to use it
 
