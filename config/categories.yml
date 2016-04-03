@@ -1,0 +1,58 @@
+--- 
+- Combustível: 
+    - POSTO
+    - COMBUSTIVEIS
+- Supermercado: 
+    - CARREFOUR
+    - EXTRA
+    - "VERDE MAR"
+    - VERDEMAR
+    - EPA
+    - SUPERNOSSO
+    - "SUPER NOSSO"
+- Comida: 
+    - LANCHES?
+    - LANCHONETE
+    - RESTAURANTE
+    - TRIGOPANE
+    - PADARIA
+    - MERCADO
+    - CANTINA
+    - EMPORIO
+    - DOCES
+    - FRANGO
+    - CARNE
+    - GRAAL
+    - REST
+    - FRUTAS
+    - TRAILER
+    - PARRILLA
+    - RESTAU
+    - BISCOITOS?
+    - MATE
+    - SPOLETO
+- Farmácia: 
+    - DROGARIA
+    - DROGA
+- Lazer: 
+    - HABIBBS
+    - CHURRASCARIA
+    - PIZZA
+    - GOURMET
+    - BURGER
+    - BAR
+    - BOI
+    - CAFE
+    - CAFETERIA
+    - BISTRO
+    - KOPENHAGEN
+    - CINEMARK
+    - CINEART
+    - CINEPLEX
+    - ESPETINHO
+    - CHOPP
+    - OUTBACK
+    - PUB
+    - CHURRASCO
+    - CHOPPERIA
+    - CHOPERIA

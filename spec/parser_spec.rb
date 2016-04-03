@@ -8,17 +8,17 @@ describe Parser do
   context 'reading files' do
     context 'when file exists' do
       it 'rejects useless lines' do
-        expect(lines[0]).to match("POSTO GRAJAU")
+        expect(lines[0]).to match('POSTO GRAJAU')
       end
     end
 
     context 'when file does not exist' do
-      it { expect { parser.lines('non-existent.csv') }.to raise_error(Errno::ENOENT) }
+      it do
+        expect do
+          parser.lines('non-existent.csv')
+        end.to raise_error(Errno::ENOENT)
+      end
     end
-  end
-
-  context 'date conversion' do
-    it { expect(parser.convert_date('10/20/2015')).to eql('20/10/2015') }
   end
 
   context 'data extraction' do
@@ -45,12 +45,12 @@ describe Parser do
   end
 
   context 'category discovery' do
-    it { expect(parser.category('POSTO GRAJAU')).to eql('Combustível') }
-    it { expect(parser.category('DROGARIA ARAUJO')).to eql('Farmácia') }
-    it { expect(parser.category('DROGARIA RAIA')).to eql('Farmácia') }
-    it { expect(parser.category('BARRACA')).to eql('Indefinido') }
-    it { expect(parser.category('BAR')).to eql('Lazer') }
-    it { expect(parser.category('BAR DO JOAO')).to eql('Lazer') }
+    it { expect(parser.find_category('POSTO GRAJAU')).to eql('Combustível') }
+    it { expect(parser.find_category('DROGARIA ARAUJO')).to eql('Farmácia') }
+    it { expect(parser.find_category('DROGARIA RAIA')).to eql('Farmácia') }
+    it { expect(parser.find_category('BARRACA')).to eql('Indefinido') }
+    it { expect(parser.find_category('BAR')).to eql('Lazer') }
+    it { expect(parser.find_category('BAR DO JOAO')).to eql('Lazer') }
   end
 
   context 'period extraction' do
