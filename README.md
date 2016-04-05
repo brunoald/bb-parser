@@ -1,6 +1,6 @@
 # bb-parser 
 
-[![Build Status](https://travis-ci.org/brunoald/bb-parser.svg?branch=master)[https://travis-ci.org/brunoald/bb-parser]
+[![Build Status](https://travis-ci.org/brunoald/bb-parser.svg?branch=master)](https://travis-ci.org/brunoald/bb-parser)
 [![Coverage Status](https://coveralls.io/repos/github/brunoald/bb-parser/badge.svg?branch=master)](https://coveralls.io/github/brunoald/bb-parser?branch=master)
 
 This software parses Banco do Brasil CSV statements and creates a better one.
