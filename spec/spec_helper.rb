@@ -1,3 +1,9 @@
+require 'simplecov'
+require 'coveralls'
+
+SimpleCov.start
+Coveralls.wear!
+
 def fixture_path(fixture)
   "spec/fixtures/#{fixture}"
 end

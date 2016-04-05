@@ -3,3 +3,4 @@ data/
 output.csv
 run.rb
 .DS_Store
+coverage/
