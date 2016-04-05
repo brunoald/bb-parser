@@ -16,3 +16,7 @@ This software parses Banco do Brasil CSV statements and creates a better one.
 ## License
 
 GNU General Public License.
+
+## Copyright
+
+Copyright (c) 2016 Bruno Dias
