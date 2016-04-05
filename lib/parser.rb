@@ -6,11 +6,11 @@ require 'yaml'
 
 # This class parses CSV files
 class Parser
-  DATA_PATH = 'data/*.csv'.freeze
   DATETIME_REGEX = %r([0-9]{2}\/[0-9]{2}\s[0-9]{2}:[0-9]{2})
 
-  def initialize
+  def initialize(opts = {})
     @entries = []
+    @data_path = "#{opts[:data_path]}/*.csv" || 'data/*.csv'
   end
 
   def lines(file)
@@ -93,7 +93,7 @@ class Parser
   end
 
   def run
-    Dir.glob(DATA_PATH) do |file|
+    Dir.glob(@data_path) do |file|
       lines(file).each do |line|
         @entries << extract_data(line)
       end

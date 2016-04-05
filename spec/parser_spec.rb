@@ -59,4 +59,19 @@ describe Parser do
     it { expect(parser.extract_period('12:00')).to eql('Tarde') }
     it { expect(parser.extract_period('18:00')).to eql('Noite') }
   end
+
+  context 'CSV generation' do
+    let(:parser) { Parser.new({ data_path: 'spec/fixtures/run' }) }
+    let(:csv) do
+      [
+       "entry_date,month,year,type,place,value,hour,period,category",
+       "13/10/2015,10,2015,Compra com Cartão,POSTO GRAJAU,\"-40,00\",16:16,Tarde,Combustível\n"
+      ].join("\n")
+    end
+    before do
+      allow(File).to receive(:write)
+      parser.run
+    end
+    it { expect(File).to have_received(:write).with('output.csv', csv) }
+  end
 end
