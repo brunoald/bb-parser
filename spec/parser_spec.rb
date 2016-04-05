@@ -61,17 +61,31 @@ describe Parser do
   end
 
   context 'CSV generation' do
-    let(:parser) { Parser.new({ data_path: 'spec/fixtures/run' }) }
-    let(:csv) do
+    let(:parser) { Parser.new(data_path: 'spec/fixtures/run') }
+
+    let(:line1) do
       [
-       "entry_date,month,year,type,place,value,hour,period,category",
-       "13/10/2015,10,2015,Compra com Cartão,POSTO GRAJAU,\"-40,00\",16:16,Tarde,Combustível\n"
-      ].join("\n")
+        :entry_date, :month, :year, :type, :place,
+        :value, :hour, :period, :category
+      ].join(',')
     end
+
+    let(:line2) do
+      [
+        '13/10/2015', 10, 2015, 'Compra com Cartão',
+        'POSTO GRAJAU', '"-40,00"', '16:16', 'Tarde', "Combustível\n"
+      ].join(',')
+    end
+
+    let(:csv) do
+      [line1, line2].join("\n")
+    end
+
     before do
       allow(File).to receive(:write)
       parser.run
     end
+
     it { expect(File).to have_received(:write).with('output.csv', csv) }
   end
 end
